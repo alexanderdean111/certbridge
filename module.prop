@@ -1,0 +1,6 @@
+id=certbridge
+name=Certificate Bridge
+version=0.1
+versionCode=1
+author=Alexander Dean
+description=Clones certificates in /data/local/tmp/certbridge to the system store.
