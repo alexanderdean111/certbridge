@@ -2,6 +2,7 @@
 
 MAGISK_MOD_DIR="/data/adb/modules"
 CERTBRIDGE_DIR="${MAGISK_MOD_DIR}/certbridge"
+MAGISK_BUSYBOX="/data/adb/magisk/busybox"
 
 # sanity checks
 if [ $(id -u) -ne 0 ]; then
@@ -19,6 +20,8 @@ if [ -d "${CERTBRIDGE_DIR}" ]; then
   exit 1
 fi
 
+echo "[+] Ensuring we aren't using DOS line breaks"
+$BUSYBOX dos2unix $(pwd)
 echo "[+] Copying module to ${CERTBRIDGE_DIR}"
 mkdir "${MAGISK_MOD_DIR}/certbridge"
 cp -r "$(pwd)/META-INF" "${CERTBRIDGE_DIR}"
