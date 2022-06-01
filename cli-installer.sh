@@ -21,7 +21,7 @@ if [ -d "${CERTBRIDGE_DIR}" ]; then
 fi
 
 echo "[+] Ensuring we aren't using DOS line breaks"
-$MAGISK_BUSYBOX dos2unix $(pwd)
+find . -type f -exec $MAGISK_BUSYBOX dos2unix {} \;
 echo "[+] Copying module to ${CERTBRIDGE_DIR}"
 mkdir "${MAGISK_MOD_DIR}/certbridge"
 cp -r "$(pwd)/META-INF" "${CERTBRIDGE_DIR}"
